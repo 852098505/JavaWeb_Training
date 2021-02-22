@@ -33,7 +33,7 @@ public class c3p0_pool {
         }
     }
 
-
+    @Test
     public void test() {
         Connection conn = null;
         PreparedStatement ps = null;
