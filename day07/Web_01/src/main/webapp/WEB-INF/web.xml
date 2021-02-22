@@ -9,10 +9,21 @@
         <servlet-name>FirstServlet</servlet-name>
         <servlet-class>cn.tedu.web.FirstServlet</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>SecondServlet</servlet-name>
+        <servlet-class>cn.tedu.web.SecondServlet</servlet-class>
+    </servlet>
+    
     <!--配置Servlet的访问路径-->
     <servlet-mapping>
         <servlet-name>FirstServlet</servlet-name>
         <url-pattern>/FirstServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SecondServlet</servlet-name>
+        <url-pattern>/SecondServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>
