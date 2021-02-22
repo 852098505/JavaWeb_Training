@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="application/javascript">
+
+/*        //window对象 - 代表当前窗口
+        //消息对话框
+        window.alert("faef");
+        //确认对话框
+        var flag = confirm("are you sure?");
+        console.log(flag);
+        //提示对话框
+        var str = prompt("please write your name:");
+        console.log(str);*/
+
+        setInterval(function (){
+            var d01 = document.getElementById("d01");
+            d01.innerText = new Date().toString()
+        },1000);
+
+    </script>
+
+
+
+</head>
+<body>
+
+        <div id="d01"></div>
+
+</body>
+</html>

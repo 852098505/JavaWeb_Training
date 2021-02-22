@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        body{
+            font-family: "微软雅黑";
+        }
+
+        table{
+            border: #0099FF 1px solid;
+            width: 100px;
+            border-collapse: collapse;
+            margin: 15px 10px;
+            width: 10%;
+        }
+
+        table td{
+            border: #0066FF 1px solid;
+            background-color: #FFFF66;
+            text-align: center;
+            padding: 5px 0px;
+        }
+
+        table td div{
+            background-color: #FF3399;
+            text-align: left;
+            line-height: 24px;
+            padding-left: 14px;
+        }
+
+        table td a:link, table td a:visited{
+            color: #00FFFF;
+            text-decoration: none;
+        }
+
+        table td a:hover{
+            color: #00CC00;
+        }
+
+        table td div { display: none;}
+
+    </style>
+
+    <script type="application/javascript">
+        function openDiv(thisobj){
+            //注意：除了html里面有元素，空字符串比如空格也算是元素之一
+            var  td = thisobj.parentNode;
+            var div = td.getElementsByTagName("div")[0];
+            if (div.style.display !="block"){
+                div.style.display = "block";
+            }else {
+                div.style.display = "none";
+            }
+
+            //时长106分钟
+
+
+
+        }
+    </script>
+
+
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>
+            <a href="javascript:void (0)" onclick="openDiv(this)">君王列表</a>
+            <div>
+                秦始皇<br/>
+                刘邦<br/>
+                李世民<br/>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <a href="javascript:void (0)" onclick="openDiv(this)">美女列表</a>
+            <div>
+                杨贵妃<br/>
+                王昭君<br/>
+                小乔<br/>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <a href="javascript:void (0)" onclick="openDiv(this)">IT列表</a>
+            <div>
+                马云<br/>
+                李开复<br/>
+                马化腾<br/>
+            </div>
+        </td>
+    </tr>
+
+
+</table>
+
+
+
+</body>
+</html>
