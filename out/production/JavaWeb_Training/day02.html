@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>div+css</title>
+
+<!--    <style type="text/css">
+
+        div{
+            color: aqua;
+            background-color: blueviolet;
+        }
+
+    </style>-->
+
+<!--
+    <link rel="stylesheet" href="1.css"/>
+-->
+
+<!--    <style>
+        @import "1.css";
+    </style>-->
+
+<!--    <style>
+
+        /*id选择器*/
+        #div1{
+            color: blueviolet;
+            background-color: blue;
+        }
+
+        /*类选择器*/
+        .div2{
+            color: blueviolet;
+            background-color: blue;
+        }
+
+        /*元素选择器*/
+        div{
+            color: darkgreen;
+            background-color: red;
+        }
+
+    </style>-->
+
+    <!--后代选择器-->
+<!--    <style>
+        div span{
+            color: yellow;
+            background-color: blueviolet;
+        }
+    </style>-->
+
+    <!--子元素选择器-->
+<!--    <style>
+        div>span{
+            color: greenyellow;
+            background-color: blueviolet;
+        }
+    </style>-->
+
+    <!--相邻兄弟选择器-->
+<!--    <style>
+        div+span{
+            color: greenyellow;
+            background-color: blueviolet;
+        }
+    </style>-->
+
+    <!--属性选择器-->
+<!--        <style>
+            div[name]{
+                color: greenyellow;
+                background-color: blueviolet;
+            }
+        </style>-->
+
+    <!--多元素选择器-->
+<!--            <style>
+                #div1,.div2,div+span{
+                    color: greenyellow;
+                    background-color: blueviolet;
+                }
+            </style>-->
+
+    <!--伪元素选择器，只能操作a标签-->
+    <style>
+        a:link{
+            color: greenyellow;
+            background-color: greenyellow;
+        }
+
+        a:visited{
+            color: green;
+            background-color: blueviolet;
+        }
+
+        a:hover{
+            color: greenyellow;
+            background-color: yellow;
+        }
+
+        a:active{
+            color: darkgreen;
+            background-color: aqua;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div id="div1">一个div</div>
+    <div class="div2">一个div</div>
+    <div name="div3">一个div</div>
+
+    <span>div前的span</span>
+    <div>
+        <span>div里的span(儿子)
+            <span>
+                div里的span(孙子)
+            </span>
+
+        </span>
+    </div>
+
+    <p>一个p标签</p>
+    <p>一个p标签</p>
+    <p>一个p标签</p>
+
+    <span>一个span</span>
+    <span>一个span</span>
+    <span>一个span</span>
+
+    <!--第一种引入方式-->
+    <div style="color: blue;background-color: red">一个div</div>
+
+    <!--第二种引入方式在head引入-->
+
+    <!--第三种引入方式，引入外部css文件-->
+
+    <!--第四种引入方式，import引入外部css文件-->
+
+    <a href="www.baidu.com">这不是一个超链接</a>
+</body>
+</html>

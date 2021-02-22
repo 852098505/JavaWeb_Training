@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="application/javascript">
+        //第一种给按钮绑定点击事件 - 通过在html标签中的onclick来绑定事件名称
+/*        function func01(){
+            alert("aewwaef");
+        }*/
+
+        //第二种给按钮元素绑定事件
+        //window.onloads是在页面加载完成后，所有元素全部加载完毕立即执行，自然就不会出现找不到元素未null错误
+        window.onload = function (){
+
+            //b1
+            var b1 = document.getElementById("b1");
+            b1.onclick = function (){
+                var un_input = document.getElementById("username").value;
+                alert(un_input);
+            }
+
+            //b2
+            var b2 = document.getElementById("b2");
+            b2.onclick = function (){
+                //注意document.getElementsByName()方法，这个返回值是一个数组，若想取出使用，应该用下标方式获取
+                var pd_inputs = document.getElementsByName("password");
+                alert(pd_inputs[0].value);
+            }
+
+            //b3
+            var b3 = document.getElementById("b3");
+            b3.onclick = function (){
+                //getElementsByTagName返回的也是一个数组
+                var inputs = document.getElementsByTagName("input");
+                alert(inputs[2].value);
+            }
+
+            //b4
+            var b4 = document.getElementById("b4");
+            b4.onclick = function (){
+                //p标签中有属性是innertext和innerHTML，可以获取或者设置p标签起始和结束之间的内容
+                var p = document.getElementById("pid");
+                //innerHTML是获取夹在p标签内部的HTML文档
+                //alert(p.innerHTML);
+                //innerText是获取夹在p标签内部的文本，干货
+                //alert(p.innerText);
+                //p.innerText = "baidu";
+                p.innerHTML = "<a href = '#'>baidu</a>>"
+            }
+        }
+
+    </script>
+
+
+
+
+
+</head>
+<body>
+    用户名：<input type="text" name="username" id="username"><br>
+    密码：<input type="password" name="password" id="password"><br>
+    确认密码：<input type="password" name="rd" id="password2"><br>
+
+    <hr />
+    <input type="button" value="通过ID获取并弹出用户名输入框的值" id="b1">
+
+    <input type="button" value="通过name属性获取并弹出密码输入框的值" id="b2">
+
+    <input type="button" value="通过元素名称获取并弹出确认密码输入框的值" id="b3">
+
+    <hr />
+    <p id="pid"><font color="red">这是p标签中的文字</font></p>
+    <input type="button" value="获取p中的文字" id="b4">
+
+</body>
+</html>

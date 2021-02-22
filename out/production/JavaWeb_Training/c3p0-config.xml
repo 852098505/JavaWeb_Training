@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<c3p0-config>
+    <default-config>
+        <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+        <property name="jdbcUrl">jdbc:mysql:///mydb5</property>
+        <property name="user">root</property>
+        <property name="password">12345678</property>
+    </default-config>
+</c3p0-config>

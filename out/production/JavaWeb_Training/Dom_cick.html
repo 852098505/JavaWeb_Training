@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        div { border: #0099FF 1px solid;height: 60px;width: 120px ;
+            margin: 12px}
+        #div_1{background-color: #00FFFF;}
+
+        #div_2{background-color: #FF3399;}
+
+        #div_3{background-color: #0000FF;}
+
+        #div_4{background-color: #FFFF66;}
+
+
+
+    </style>
+
+    <script type="application/javascript">
+        function createDiv(){
+            //1.创建div
+            var div = document.createElement("div");
+            div.innerText = "新高出来的div"
+            //2.获取body
+            var body = document.getElementsByTagName("body")[0];
+            //3.将div挂载到body上
+            //在父节点上追加一个子节点
+            body.appendChild(div);
+        }
+
+        function delDiv(){
+            //1.获取div2
+            var div2 = document.getElementById("div_2");
+            //2.获取body
+            var body = div2.parentNode;
+            //3.从body上删除div2
+            //从父节点上删除一个子节点
+            body.removeChild(div2);
+        }
+
+        function replaceDiv(){
+            //1.创建新div
+            var new_div = document.createElement("div");
+            new_div.innerText = "新的div3";
+            //2.获取旧的div
+            var div3 = document.getElementById("div_3");
+            //3.获取父标签
+            var body = div3.parentNode;
+            //4.进行替换操作
+            body.replaceChild(new_div,div3);
+        }
+
+        function cloneDiv(){
+            //1.获取div4
+            var div4 = document.getElementById("div_4");
+            //2.克隆div4
+            var clone_div = div4.cloneNode(true);
+            //3.获取父标签
+            var body = div4.parentNode;
+            //4.追加div
+            body.appendChild(clone_div);
+
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <div id="div_1">
+        div区域1
+    </div>
+
+    <div id="div_2">
+        div区域2
+    </div>
+
+    <div id="div_3">
+        div区域3
+    </div>
+
+    <div id="div_4">
+        div区域4
+    </div>
+
+    <input type="button" value="创建并添加节点" id="b1" onclick="createDiv()">
+    <input type="button" value="删除节点div" id="b2" onclick="delDiv()">
+    <input type="button" value="替换节点div" id="b3" onclick="replaceDiv()">
+    <input type="button" value="克隆节点div" id="b4" onclick="cloneDiv()">
+</body>
+</html>

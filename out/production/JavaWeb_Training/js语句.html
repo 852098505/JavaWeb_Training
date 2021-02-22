@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js语句</title>
+
+    <script type="application/javascript">
+
+        // var a = 2;
+        // if(a=1) {
+        //     console.log("买西瓜");
+        // }else {
+        //     console.log("买麻瓜");
+        // }
+
+/*        function mx(a,b){
+            return a+b;
+        }
+
+        console.log(mx(2,4));*/
+
+/*        function mx(a,b){
+            //遍历调用函数传入的参数值
+            for (var i=0;i<arguments.length;i++){
+                console.log(arguments[i]);
+            }
+        }
+
+        mx(1,2,3,4,5)*/
+
+/*        //动态函数定义
+        var mx = new Function("a","b","return a+b");
+        console.log(mx(2,3,1));*/
+
+/*        //直接量定义
+        var a = function (a,b){
+            return a+b;
+        }
+        console.log(a(2,6));*/
+
+        function eat(food){
+            if(food == "煎饼"){
+                return "摊"+food;
+            }else if (food=="羊肉串"){
+                return "烤"+food;
+            }
+        }
+
+        function chief(cook,food){
+            food = cook(food);
+            return "吃"+food;
+        }
+
+        console.log(chief(eat,"煎饼"));
+
+    </script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>
