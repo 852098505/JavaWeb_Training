@@ -12,6 +12,7 @@ public class SecondServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String time = new Date().toLocaleString();
+        resp.setHeader("content-type","text/html;charset=utf-8");
         resp.getWriter().write(time + "");
     }
 }
