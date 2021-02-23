@@ -61,8 +61,118 @@ ServletRequest
 
 在产生请求参数乱码时，可以以上原理通过改变表单页面编码、tomcat连接器配置(GET乱码)、设置request.setCharacterEncoding(POST乱码)来解决。
 
+如果因为各种原因，乱码已经产生，此时可以通过手动编解码解决乱码。
+
+注意仅限ios8859-1产生的乱码可以通过这种方式来解决。
+
+```
+String str = new String(??????.getBytes("iso8859-1"),"utf-8")
+```
+
+###### 案例
+
+EasyMall注册功能 - 获取表单数据实现
+
+```
+protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //解决post提交乱码问题
+        req.setCharacterEncoding("utf-8");
+        //获取用户提交的请求参数
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
+        String password2 = req.getParameter("password2");
+        String nickname = req.getParameter("nickname");
+        String email = req.getParameter("email");
+        String valistr = req.getParameter("valistr");
+        //校验数据
+        //检查用户名是否已经存在
+        //有问题提示
+        //没问题
+    }
+```
+
 #### 		4.实现请求转发
+
+请求转发时javaweb开发中的三种资源跳转方式之一
+
+##### 请求转发的特点：
+
+- [ ] 服务器内部的资源跳转机制
+- [ ] 一次请求一次响应
+- [ ] 可以利用request域传递数据
+- [ ] 浏览器地址栏不会发生变化
+
+##### 转发的实现
+
+```
+RequestDispatcher dispatcher=request.getRequestDispatcher(***\*"/MyServlet05"\****);dispatcher.forward(request,response);
+
+简写
+request.getRequestDispatcher(***\*"/MyServlet05"\****).forward(request,response);
+```
+
+##### !!!!注意，请求转发是服务器内部的资源跳转，目标地址不需要写应用名称
+
+##### 转发注意事项
+
+- [ ] 可以多次转发，但不能循环转发
+- [ ] 无论转发多少次，只有最后一个资源可以对外输出数据，其他资源的输出在转发时会被清空
 
 #### 		5.实现请求包含
 
+请求包含可以将其他资源的输出包含到当前资源中。
+
+##### 包含的实现
+
+```
+request.getRequestDispacher(path).include(request,response);
+```
+
+###### 案例
+
+EasyMall主页通过包含引入头和尾。
+
+![](https://gitee.com/Cming852098505/img/raw/master/img/20210223162925.png) 
+
+![](https://gitee.com/Cming852098505/img/raw/master/img/20210223162938.png)
+
 #### 		6.作为域对象使用
+
+equest是一个域对象
+
+request域是javaweb开发中四大作用域之一
+
+利用request域可以在转发的过程中传递数据
+
+操作api
+
+| setAttribute(String name,Object obj) | 向域中存入数据               |
+| ------------------------------------ | ---------------------------- |
+| getAttribute(String name)            | 从域中获取数据               |
+| removeAttribute(String name)         | 删除域中指定数据             |
+| getAttributeNames()                  | 获取域中所有属性名组成的枚举 |
+
+#### 特点
+
+##### 		作用范围
+
+在一次请求范围内有效
+
+##### 		生命周期
+
+请求开始 request对象创建 作用域创建
+
+请求结束 request对象销毁 作用域销毁
+
+##### 		主要功能
+
+在一个请求范围内(转发、包含)共享数据
+
+案例
+
+EasyMall注册功能 - 数据校验功能实现 - 传递错误消息
+
+![](https://gitee.com/Cming852098505/img/raw/master/img/20210223163009.png)
+
+ ![](https://gitee.com/Cming852098505/img/raw/master/img/20210223163017.png)
+
