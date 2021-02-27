@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.*;
@@ -25,7 +26,17 @@ public class RegistServlet extends HttpServlet {
         String valistr = request.getParameter("valistr");
         //2.校验数据
         //--校验验证码
-        //TODO...
+        //----获取session中存储的当初发送的验证码
+        HttpSession session = request.getSession();
+        String valistr2 = (String) session.getAttribute("valistr");
+        //----判断当初发送的验证码 和 现在用户提交的验证码是否一致
+        if(valistr == null || "".equals(valistr.trim())
+            || valistr2 ==null || "".equals(valistr2.trim())
+            || !valistr.equals(valistr2)){
+            request.setAttribute("msg","验证码不正确！");
+            request.getRequestDispatcher("/regist.jsp").forward(request,response);
+            return;
+        }
         //--用户名不能为空
         if(username==null || "".equals(username)){
             request.setAttribute("msg","用户名不能为空!");

@@ -1,3 +1,4 @@
+<%@ page import="cn.tedu.domain.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/head.css"/>
@@ -6,7 +7,18 @@
 <div id="common_head">
     <div id="line1">
         <div id="content">
-            <a href="#">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/regist.jsp">注册</a>
+            <%
+                if(session.getAttribute("user")==null){
+            %>
+                    <a href="<%=request.getContextPath()%>/login.jsp">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/regist.jsp">注册</a>
+            <%
+                }else{
+            %>
+                    欢迎回来！<%=((User)session.getAttribute("user")).getUsername()%>!
+                    <a href="<%=request.getContextPath()%>/LogoutServlet">[登出]</a>
+            <%
+                }
+            %>
         </div>
     </div>
     <div id="line2">
