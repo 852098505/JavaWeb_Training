@@ -4,8 +4,8 @@
 <head>
     <title>欢迎注册EasyMall</title>
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/regist.css"/>
-    <script type="application/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/regist.css"/>
+    <script type="application/javascript" src="${pageContext.request.contextPath}/js/jquery-1.4.2.js"></script>
     <script type="application/javascript">
         //表单提交校验
         function checkForm(){
@@ -86,19 +86,17 @@
 
         //点击更换验证码
         function changeImg(imgObj){
-            imgObj.src = "<%=request.getContextPath()%>/ValiImgServlet?time="+new Date().getTime();
+            imgObj.src = "${pageContext.request.contextPath}/ValiImgServlet?time="+new Date().getTime();
         }
     </script>
 </head>
 <body>
 <h1>欢迎注册EasyMall</h1>
-<form action="<%=request.getContextPath()%>/RegistServlet" method="POST" onsubmit="return checkForm()">
+<form action="${pageContext.request.contextPath}/RegistServlet" method="POST" onsubmit="return checkForm()">
     <table>
         <tr>
             <td colspan="2">
-                <span>
-                <%=request.getAttribute("msg") == null ? "" : request.getAttribute("msg")%>
-                </span>
+                <span>${requestScope.msg}</span>
             </td>
         </tr>
         <tr>
@@ -140,7 +138,7 @@
             <td class="tds">验证码：</td>
             <td>
                 <input type="text" name="valistr" onblur="checkNull('valistr','验证码不能为空！')">
-                <img id="yzm_img" src="<%=request.getContextPath()%>/ValiImgServlet" style="cursor: pointer" onclick="changeImg(this)"/>
+                <img id="yzm_img" src="${pageContext.request.contextPath}/ValiImgServlet" style="cursor: pointer" onclick="changeImg(this)"/>
                 <span id="valistr_msg"></span>
             </td>
         </tr>

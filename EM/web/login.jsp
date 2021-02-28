@@ -1,21 +1,20 @@
+<%@ page import="java.net.URLDecoder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <html>
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/login.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css"/>
     <title>EasyMall欢迎您登陆</title>
 </head>
 <body>
 <h1>欢迎登陆EasyMall</h1>
-<form action="<%=request.getContextPath()%>/LoginServlet" method="POST">
+<form action="${pageContext.request.contextPath}/LoginServlet" method="POST">
     <table>
         <tr>
             <td colspan="2">
                 <span>
-                    <font color="red">
-                        <%= request.getAttribute("msg") == null ? "" : request.getAttribute("msg")%>
-                    </font>
+                    <font color="red">${requestScope.msg}</font>
                 </span>
             </td>
         </tr>
@@ -34,11 +33,13 @@
                 }
                 String uname = "";
                 if(findC!=null){
-                    uname = findC.getValue();
+                    String v = findC.getValue();
+                    uname = URLDecoder.decode(v,"utf-8");
                 }
+                pageContext.setAttribute("uname",uname);
             %>
             <td class="tdx">用户名:</td>
-            <td><input type="text" name="username" value="<%=uname%>"/></td>
+            <td><input type="text" name="username" value="${uname}"/></td>
         </tr>
         <tr>
             <td class="tdx">密码:</td>

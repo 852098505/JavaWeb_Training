@@ -6,6 +6,7 @@ import cn.tedu.util.JDBCUtils;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +26,7 @@ public class LoginServlet extends HttpServlet {
         String remname = request.getParameter("remname");
         if("true".equals(remname)){
             //用户勾选了记住用户名，发送cookie保存用户名
-            Cookie remnamec = new Cookie("remnamec",username);
+            Cookie remnamec = new Cookie("remnamec", URLEncoder.encode(username,"utf-8"));
             remnamec.setMaxAge(60 * 60 * 24 * 30);//保存30天
             remnamec.setPath(request.getContextPath());//访问当前应用路径及其子孙路径都要带回来
             response.addCookie(remnamec);

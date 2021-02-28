@@ -1,7 +1,7 @@
 <%@ page import="cn.tedu.domain.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/head.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/head.css"/>
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 
 <div id="common_head">
@@ -10,26 +10,26 @@
             <%
                 if(session.getAttribute("user")==null){
             %>
-                    <a href="<%=request.getContextPath()%>/login.jsp">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/regist.jsp">注册</a>
+                    <a href="${pageContext.request.contextPath}/login.jsp">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/regist.jsp">注册</a>
             <%
                 }else{
             %>
-                    欢迎回来！<%=((User)session.getAttribute("user")).getUsername()%>!
-                    <a href="<%=request.getContextPath()%>/LogoutServlet">[登出]</a>
+                    欢迎回来！${sessionScope.user.username}!
+                    <a href="${pageContext.request.contextPath}/LogoutServlet">[登出]</a>
             <%
                 }
             %>
         </div>
     </div>
     <div id="line2">
-        <img id="logo" src="<%=request.getContextPath()%>/img/head/logo.jpg"/>
+        <img id="logo" src="${pageContext.request.contextPath}/img/head/logo.jpg"/>
         <input type="text" name=""/>
         <input type="button" value="搜索"/>
         <span id="goto">
 			<a id="goto_order" href="#">我的订单</a>
 			<a id="goto_cart" href="#">我的购物车</a>
 		</span>
-        <img id="erwm" src="<%=request.getContextPath()%>/img/head/qr.jpg"/>
+        <img id="erwm" src="${pageContext.request.contextPath}/img/head/qr.jpg"/>
     </div>
     <div id="line3">
         <div id="content">
