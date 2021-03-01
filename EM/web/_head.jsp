@@ -15,7 +15,7 @@
                 }else{
             %>
                     欢迎回来！${sessionScope.user.username}!
-                    <a href="${pageContext.request.contextPath}/LogoutServlet">[登出]</a>
+                    <a href="${pageContext.request.contextPath}/servlet/LogoutServlet">[登出]</a>
             <%
                 }
             %>

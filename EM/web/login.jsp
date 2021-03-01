@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>欢迎登陆EasyMall</h1>
-<form action="${pageContext.request.contextPath}/LoginServlet" method="POST">
+<form action="${pageContext.request.contextPath}/servlet/LoginServlet" method="POST">
     <table>
         <tr>
             <td colspan="2">

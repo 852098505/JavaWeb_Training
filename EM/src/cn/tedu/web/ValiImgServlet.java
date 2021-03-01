@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * 获取验证码
  */
-@WebServlet(urlPatterns = "/ValiImgServlet")
+@WebServlet(urlPatterns = "/servlet/ValiImgServlet")
 public class ValiImgServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //--禁止缓存验证码

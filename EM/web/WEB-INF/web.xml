@@ -14,7 +14,8 @@
     </filter>
     <filter-mapping>
         <filter-name>EncodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>*.jsp</url-pattern>
+        <url-pattern>/servlet/*</url-pattern>
     </filter-mapping>
     <!--30天内自动登录过滤器-->
     <filter>

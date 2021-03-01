@@ -14,7 +14,7 @@ import java.net.URLEncoder;
 /**
  * 登录
  */
-@WebServlet(urlPatterns = "/LoginServlet")
+@WebServlet(urlPatterns = "/servlet/LoginServlet")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //0.解决乱码

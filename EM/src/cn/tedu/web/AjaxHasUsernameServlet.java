@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * Ajax校验用户名是否已经存在
  */
-@WebServlet(urlPatterns = "/AjaxHasUsernameServlet")
+@WebServlet(urlPatterns = "/servlet/AjaxHasUsernameServlet")
 public class AjaxHasUsernameServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //1.解决乱码

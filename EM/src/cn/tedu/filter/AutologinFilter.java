@@ -5,6 +5,7 @@ import cn.tedu.exception.MsgException;
 import cn.tedu.service.UserService;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

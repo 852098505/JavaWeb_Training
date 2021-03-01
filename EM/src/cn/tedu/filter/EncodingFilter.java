@@ -1,6 +1,8 @@
 package cn.tedu.filter;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -21,6 +23,7 @@ public class EncodingFilter implements Filter {
         //1.解决请求乱码
         request.setCharacterEncoding(encoding);
         //2.解决响应乱码
+        HttpServletRequest req = (HttpServletRequest) request;
         response.setContentType("text/html;charset="+encoding);
         //3.放行资源
         chain.doFilter(request,response);

@@ -9,7 +9,7 @@ import java.net.URLEncoder;
 /**
  * 登出
  */
-@WebServlet(urlPatterns = "/LogoutServlet")
+@WebServlet(urlPatterns = "/servlet/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //1.杀死session

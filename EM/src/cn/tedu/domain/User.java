@@ -1,6 +1,12 @@
 package cn.tedu.domain;
 
-public class User {
+import org.apache.log4j.Logger;
+
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+import java.util.Date;
+
+public class User implements HttpSessionBindingListener {
     private int id;
     private String username;
     private String password;
@@ -56,5 +62,16 @@ public class User {
                 ", nickname='" + nickname + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    private static Logger logger = Logger.getLogger(User.class);
+    @Override
+    public void valueBound(HttpSessionBindingEvent hsbe) {
+        logger.info("用户["+this.username+"]登录！");
+    }
+
+    @Override
+    public void valueUnbound(HttpSessionBindingEvent hsbe) {
+        logger.info("用户["+this.username+"]登出！");
     }
 }

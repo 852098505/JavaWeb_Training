@@ -64,7 +64,7 @@
             //--AJAX检查用户名是否已经存在
             if(flag){
                 var username = $("input[name='username']").val();
-                $("#username_msg").load("${pageContext.request.contextPath}/AjaxHasUsernameServlet",{"username":username});
+                $("#username_msg").load("${pageContext.request.contextPath}/servlet/AjaxHasUsernameServlet",{"username":username});
             }
         }
 
@@ -86,13 +86,13 @@
 
         //点击更换验证码
         function changeImg(imgObj){
-            imgObj.src = "${pageContext.request.contextPath}/ValiImgServlet?time="+new Date().getTime();
+            imgObj.src = "${pageContext.request.contextPath}/servlet/ValiImgServlet?time="+new Date().getTime();
         }
     </script>
 </head>
 <body>
 <h1>欢迎注册EasyMall</h1>
-<form action="${pageContext.request.contextPath}/RegistServlet" method="POST" onsubmit="return checkForm()">
+<form action="${pageContext.request.contextPath}/servlet/RegistServlet" method="POST" onsubmit="return checkForm()">
     <table>
         <tr>
             <td colspan="2">
@@ -138,7 +138,7 @@
             <td class="tds">验证码：</td>
             <td>
                 <input type="text" name="valistr" onblur="checkNull('valistr','验证码不能为空！')">
-                <img id="yzm_img" src="${pageContext.request.contextPath}/ValiImgServlet" style="cursor: pointer" onclick="changeImg(this)"/>
+                <img id="yzm_img" src="${pageContext.request.contextPath}/servlet/ValiImgServlet" style="cursor: pointer" onclick="changeImg(this)"/>
                 <span id="valistr_msg"></span>
             </td>
         </tr>

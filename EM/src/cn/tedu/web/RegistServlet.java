@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * 注册
  */
-@WebServlet(urlPatterns = "/RegistServlet")
+@WebServlet(urlPatterns = "/servlet/RegistServlet")
 public class RegistServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //0.解决乱码
