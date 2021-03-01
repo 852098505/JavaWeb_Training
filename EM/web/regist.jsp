@@ -64,7 +64,7 @@
             //--AJAX检查用户名是否已经存在
             if(flag){
                 var username = $("input[name='username']").val();
-                $("#username_msg").load("${pageContext.request.contextPath}/AjaxHasUsernameServlet",{"username":username});
+                $("#username_msg").load("/EM01/AjaxHasUsernameServlet",{"username":username});
             }
         }
 
@@ -102,7 +102,7 @@
         <tr>
             <td class="tds">用户名：</td>
             <td>
-                <input type="text" name="username" value="${param.username}" onblur="checkUsername()">
+                <input type="text" name="username" onblur="checkUsername()">
                 <span id="username_msg"></span>
             </td>
         </tr>
@@ -123,14 +123,14 @@
         <tr>
             <td class="tds">昵称：</td>
             <td>
-                <input type="text" name="nickname" value="${param.nickname}" onblur="checkNull('nickname','昵称不能为空！')">
+                <input type="text" name="nickname" onblur="checkNull('nickname','昵称不能为空！')">
                 <span id="nickname_msg"></span>
             </td>
         </tr>
         <tr>
             <td class="tds">邮箱：</td>
             <td>
-                <input type="text" name="email" value="${param.email}" onblur="checkEmail()">
+                <input type="text" name="email" onblur="checkEmail()">
                 <span id="email_msg"></span>
             </td>
         </tr>
